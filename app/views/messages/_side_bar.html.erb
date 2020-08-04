@@ -1,22 +1,22 @@
-  <div class="side-bar">
-      <div class="side-header">
-        <div class="user-name">
-          <%= link_to edit_user_path(current_user) do %>
-            <%= current_user.name %>
-          <% end %>
-        </div>
-        <div class="making-room">
-          <%= link_to "チャットを作成する", new_room_path %>
-        </div>
-      </div>
-      <div class="rooms">
-          <% current_user.rooms.each do |room| %>
-            <div class="room">
-              <div class="room-name">
-                <%= link_to "#{room.name}", root_path %>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
+<div class="side-bar">
+  <div class="side-header">
+    <div class="user-name">
+      <%= link_to edit_user_path(current_user) do %>
+        <%= current_user.name %>
+      <% end %>
+    </div>
+    <div class="making-room">
+       <%= link_to "チャットを作成する", new_room_path %>
+    </div>
   </div>
+  <div class="rooms">
+    <% current_user.rooms.each do |room| %>
+      <div class="room">
+        <div class="room-name">
+          <%= link_to room.name, room_messages_path(room) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
