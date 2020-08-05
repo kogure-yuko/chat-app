@@ -25,7 +25,6 @@ RSpec.describe Message, type: :model do
       @message.content = nil
       @message.image = nil
       @message.valid?
-      binding.pry
       expect(@message.errors.full_messages).to include("Content can't be blank")
     end
   end
